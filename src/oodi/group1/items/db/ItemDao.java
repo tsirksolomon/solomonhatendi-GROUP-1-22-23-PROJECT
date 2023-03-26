@@ -22,12 +22,15 @@ import java.sql.Statement;
  * @author Christina Solomon
  * @version 1.0
  */
-public class ItemDao
-{
-    /**
-     * Constructor for objects of class Inventory
-     */
+public class ItemDao {
     
+    /**
+     * Create the tables for inventorydb. There is currently no need to invoke
+     * this method again.
+     * 
+     * @param dbConnection
+     * @return true if the table is created, false otherwise.
+     */
     private static boolean createTables(Connection dbConnection) {
         boolean bCreatedTables = false;
         Statement statement = null;
@@ -43,11 +46,10 @@ public class ItemDao
     }
 
     /**
-     * Accepts an item and adds it to inventorydb database.
-     * Then the connection is dropped.
+     * Adds an item to inventorydb.
      * 
      * @param item
-     * @return false if exception is caught, true otherwise.
+     * @return false if exception is caught and item is not added, true otherwise.
      * 
      */
     public static boolean addItem(Item item) {
