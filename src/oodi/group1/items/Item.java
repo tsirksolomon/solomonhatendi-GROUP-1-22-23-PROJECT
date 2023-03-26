@@ -166,3 +166,4 @@ public class Item {
     private Category category;
     //end of instance variables.
 }
+}
