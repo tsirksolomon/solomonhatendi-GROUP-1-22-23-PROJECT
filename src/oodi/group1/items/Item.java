@@ -23,12 +23,19 @@ public class Item {
     public Item(){
     }
     
+    /**
+     *
+     * @param upc 
+     * @param name
+     * @param unitPrice
+     * @param category
+     */
     public Item(String upc, String name, double unitPrice, String category) {
         this (upc, name, 0, unitPrice, null, category);
     }
     
     /**
-     * Constructor for objects of class Item
+     * Constructor for objects of class Item.
      * @param upc
      * @param name
      * @param units
@@ -49,7 +56,7 @@ public class Item {
     
     /**
      * Accessor for UPC property.
-     * @return    a String
+     * @return   Item UPC.
      */
     public String getUPC() {
         return this.upc;
@@ -57,7 +64,8 @@ public class Item {
 
     /**
      * Mutator for UPC property.
-     * @param  upc
+     * @param  upc The 12 character unique code possessed by all consumer products
+     *             for identification.
      */    
     public void setUPC(String upc) {
         this.upc = upc;
@@ -65,7 +73,7 @@ public class Item {
     
     /**
      * Accessor for item name property.
-     * @return    a String
+     * @return    Name of the Item.
      */    
     public String getName() {
         return this.name;
@@ -73,7 +81,7 @@ public class Item {
 
     /**
      * Mutator for item name property.
-     * @param  name
+     * @param  name Name of the Item.
      */    
     public void setName(String name) {
         this.name = name;
@@ -81,7 +89,7 @@ public class Item {
     
     /**
      * Accessor for item units property.
-     * @return    an int
+     * @return    Number of units of Item.
      */
     public int getUnits() {
         return this.units;
@@ -89,7 +97,7 @@ public class Item {
     
     /**
      * Mutator for item units property.
-     * @param  units
+     * @param  units Number of units of Item.
      */
     public void setUnits(int units) {
         this.units = units;
@@ -97,7 +105,7 @@ public class Item {
     
     /**
      * Accessor for unit price property.
-     * @return    a double
+     * @return    Unit price of the Item.
      */   
     public double getunitPrice() {
         return this.unitPrice;
@@ -105,7 +113,7 @@ public class Item {
 
     /**
      * Mutator for unit price property.
-     * @param  unitPrice
+     * @param  unitPrice Item price per unit.
      */    
     public void setunitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
@@ -113,7 +121,7 @@ public class Item {
     
     /**
      * Accessor for manufacturer property.
-     * @return    a String
+     * @return    Name of the manufacturer of the Item.
      */    
     public String getManufacturer() {
         return this.manufacturer;
@@ -121,7 +129,7 @@ public class Item {
 
     /**
      * Mutator for manufacturer property.
-     * @param  manufacturer
+     * @param  manufacturer Item manufacturer.
      */    
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
@@ -129,7 +137,7 @@ public class Item {
 
     /**
      * Accessor for category property.
-     * @return    a Category
+     * @return    Category the Item belongs to.
      */
     public String getCategory() {
         return this.category.name();
@@ -137,7 +145,7 @@ public class Item {
 
     /**
      * Mutator for category property.
-     * @param  category
+     * @param  category Item Category.
      */    
     public void setCategory(String category) {
         this.category = Category.getEnumFromString(category);
@@ -156,5 +164,5 @@ public class Item {
     private double unitPrice;
     private String manufacturer;
     private Category category;
-    //end of instance variables. So it's easier to keep track of if any are added idk.
+    //end of instance variables.
 }
