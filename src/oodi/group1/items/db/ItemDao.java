@@ -76,8 +76,6 @@ public class ItemDao {
         }
         return true;
     }
-    
-    public static boolean displayItem() {}
 
     //start of instance variables
     private static final String STR_CREATE_INVENTORY_TABLE
@@ -94,4 +92,7 @@ public class ItemDao {
             = "INSERT INTO APP.INVENTORY "
             + "   (UPC, NAME, UNITS, UNIT_PRICE, MANUFACTURER, CATEGORY) "
             + "VALUES (?, ?, ?, ?, ?, ?)";
+    
+    private static final String STR_GET_ITEM
+            = "SELECT * FROM APP.INVENTORY";
 }

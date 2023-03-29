@@ -1,15 +1,3 @@
 ----------------------------------------------------------------
-Fri Mar 24 13:50:11 GMT-05:00 2023D001 : [0] The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046), [1] a816c00e-0187-14f4-f672-00000f406b38, [2] C:\Users\chris\Documents\NetBeansProjects\DawnsInventorySystem\src\oodi\group1\items\db\inventorydb, [3] jdk.internal.loader.ClassLoaders$AppClassLoader@5acf9800, [4] file:/C:/Users/chris/Documents/NetBeansProjects/DawnsInventorySystem/lib/DerbyEmbedded/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=17.0.6+9-LTS-190
-user.dir=C:\Users\chris\Documents\NetBeansProjects\DawnsInventorySystem
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=null
-C005 : [0] 
-----------------------------------------------------------------
-J003 : [0] Fri Mar 24 13:50:11 GMT-05:00 2023
-----------------------------------------------------------------
-Fri Mar 24 13:50:11 GMT-05:00 2023D002 : [0] a816c00e-0187-14f4-f672-00000f406b38, [1] C:\Users\chris\Documents\NetBeansProjects\DawnsInventorySystem\src\oodi\group1\items\db\inventorydb, [2] jdk.internal.loader.ClassLoaders$AppClassLoader@5acf9800
+J003 : [0] Wed Mar 29 02:32:55 GMT-05:00 2023
 ----------------------------------------------------------------
