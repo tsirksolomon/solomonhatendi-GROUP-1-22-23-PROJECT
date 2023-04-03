@@ -48,6 +48,7 @@ public class NewItem extends javax.swing.JDialog {
         jTextField_itemUnits = new javax.swing.JTextField();
         jComboBox_category = new javax.swing.JComboBox<>();
         jLabel_Title = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Item");
@@ -61,6 +62,7 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 110;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 6, 20);
         getContentPane().add(jTextField_itemUPC, gridBagConstraints);
@@ -82,6 +84,7 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 110;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 6, 20);
         getContentPane().add(jTextField_itemName, gridBagConstraints);
@@ -97,6 +100,7 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 110;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 6, 20);
         getContentPane().add(jTextField_unitPrice, gridBagConstraints);
@@ -118,6 +122,7 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 110;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 6, 20);
         getContentPane().add(jTextField_manufacturer, gridBagConstraints);
@@ -147,9 +152,8 @@ public class NewItem extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 15;
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 10, 6);
         getContentPane().add(jButton_submit, gridBagConstraints);
@@ -165,6 +169,7 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 110;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 6, 20);
         getContentPane().add(jTextField_itemUnits, gridBagConstraints);
@@ -180,6 +185,7 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 110;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 6, 20);
         getContentPane().add(jComboBox_category, gridBagConstraints);
@@ -189,9 +195,20 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(jLabel_Title, gridBagConstraints);
+
+        jButton1.setText("cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        getContentPane().add(jButton1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -220,6 +237,11 @@ public class NewItem extends javax.swing.JDialog {
     private void jComboBox_categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_categoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_categoryActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +286,7 @@ public class NewItem extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_submit;
     private javax.swing.JComboBox<String> jComboBox_category;
     private javax.swing.JLabel jLabel_Title;

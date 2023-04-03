@@ -26,46 +26,62 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        appTabPane = new javax.swing.JTabbedPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inventoryjTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 768));
 
-        appTabPane.setBackground(new java.awt.Color(71, 234, 125));
-        appTabPane.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        appTabPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        appTabPane.setToolTipText("");
-        appTabPane.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        appTabPane.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        appTabPane.setMinimumSize(new java.awt.Dimension(155, 102));
-        appTabPane.setName("Inventory"); // NOI18N
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        inventoryjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null}
             },
             new String [] {
-
+                "UPC", "Name", "Units", "Unit Price", "Manufacturer", "Category"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        appTabPane.addTab("INVENTORY", jScrollPane2);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        inventoryjTable.setColumnSelectionAllowed(true);
+        inventoryjTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(inventoryjTable);
+        inventoryjTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        jPanel2.add(jScrollPane1, new java.awt.GridBagConstraints());
+
+        jTabbedPane1.addTab("INVENTORY", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(appTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(appTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
         );
 
-        appTabPane.getAccessibleContext().setAccessibleName("ApplicationTabs");
+        jTabbedPane1.getAccessibleContext().setAccessibleName("INVENTORY");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,8 +122,9 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane appTabPane;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable inventoryjTable;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
