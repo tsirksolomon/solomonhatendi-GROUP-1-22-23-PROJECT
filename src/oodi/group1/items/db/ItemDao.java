@@ -12,8 +12,10 @@ import oodi.group1.items.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,7 +78,36 @@ public class ItemDao {
         }
         return true;
     }
-
+    
+    public ArrayList<Item> getTableItems() {
+        ArrayList<Item> itemAList = new ArrayList<Item>();
+        Statement s = null;
+        ResultSet rs = null;
+        try {
+            Connection db = DConnection.getConnection();
+            s = db.createStatement();
+            rs = s.executeQuery(STR_GET_ITEM);
+            while(rs.next()) {
+                String upc = rs.getString(1);
+                String name = rs.getString(2);
+                int units = rs.getInt(3);
+                double uprice = rs.getDouble(4);
+                String man = rs.getString(5);
+                String cat = rs.getString(6);
+                
+                Item i = new Item(upc, name, units, uprice, man, cat);
+                itemAList.add(i);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return itemAList;
+    }
+    
+    /**
+     * TO DO: Create methods for editing and deleting items from the database.
+     */
+    
     //start of instance variables
     private static final String STR_CREATE_INVENTORY_TABLE
             = "CREATE TABLE APP.INVENTORY ("
@@ -94,5 +125,6 @@ public class ItemDao {
             + "VALUES (?, ?, ?, ?, ?, ?)";
     
     private static final String STR_GET_ITEM
-            = "SELECT * FROM APP.INVENTORY";
+            = "SELECT UPC, NAME, UNITS, UNIT_PRICE, MANUFACTURER, CATEGORY " 
+            + "FROM APP.INVENTORY";
 }

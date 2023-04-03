@@ -29,52 +29,61 @@ public class HomePage extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel();
-        model.setColumnIdentifiers( new String [] { "UPC", "Name", "Manufacturer",
-            "Units", "Unit Price", "Category"
-        }
-    );
-    inventoryjTable = new javax.swing.JTable();
+        inventoryjTable = new javax.swing.JTable();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setSize(new java.awt.Dimension(1280, 768));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1280, 768));
 
-    jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
-    jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
-    inventoryjTable.setModel(model);
-    inventoryjTable.setColumnSelectionAllowed(true);
-    inventoryjTable.getTableHeader().setReorderingAllowed(false);
-    jScrollPane1.setViewportView(inventoryjTable);
-    inventoryjTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-    if (inventoryjTable.getColumnModel().getColumnCount() > 0) {
-        inventoryjTable.getColumnModel().getColumn(0).setResizable(false);
-        inventoryjTable.getColumnModel().getColumn(1).setResizable(false);
-        inventoryjTable.getColumnModel().getColumn(2).setResizable(false);
-        inventoryjTable.getColumnModel().getColumn(3).setResizable(false);
-        inventoryjTable.getColumnModel().getColumn(4).setResizable(false);
-        inventoryjTable.getColumnModel().getColumn(5).setResizable(false);
-    }
+        inventoryjTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "UPC", "Name", "Units", "Unit Price", "Manufacturer", "Category"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-    jPanel2.add(jScrollPane1, new java.awt.GridBagConstraints());
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-    jTabbedPane1.addTab("INVENTORY", jPanel2);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        inventoryjTable.setColumnSelectionAllowed(true);
+        inventoryjTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(inventoryjTable);
+        inventoryjTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jTabbedPane1)
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-    );
+        jPanel2.add(jScrollPane1, new java.awt.GridBagConstraints());
 
-    jTabbedPane1.getAccessibleContext().setAccessibleName("INVENTORY");
+        jTabbedPane1.addTab("INVENTORY", jPanel2);
 
-    pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.getAccessibleContext().setAccessibleName("INVENTORY");
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
