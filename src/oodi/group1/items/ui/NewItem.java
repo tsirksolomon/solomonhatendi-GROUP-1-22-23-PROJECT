@@ -48,7 +48,7 @@ public class NewItem extends javax.swing.JDialog {
         jTextField_itemUnits = new javax.swing.JTextField();
         jComboBox_category = new javax.swing.JComboBox<>();
         jLabel_Title = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Item");
@@ -199,16 +199,16 @@ public class NewItem extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(jLabel_Title, gridBagConstraints);
 
-        jButton1.setText("cancel");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_cancel.setText("cancel");
+        jButton_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_cancelActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(jButton_cancel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,10 +238,10 @@ public class NewItem extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_categoryActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_cancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,7 +286,7 @@ public class NewItem extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_cancel;
     private javax.swing.JButton jButton_submit;
     private javax.swing.JComboBox<String> jComboBox_category;
     private javax.swing.JLabel jLabel_Title;
