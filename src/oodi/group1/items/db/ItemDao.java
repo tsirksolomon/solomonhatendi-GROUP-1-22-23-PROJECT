@@ -79,7 +79,20 @@ public class ItemDao {
         return true;
     }
     
-    public static boolean deleteItem(Item item) {
+    public static boolean deleteItem(String id) {
+         try {
+             Connection db = DConnection.getConnection();
+        
+        PreparedStatement ps = db.prepareStatement(STR_DEL_ITEM);
+        
+        ps.setString(1,id);
+        ps.executeUpdate();
+        
+        DConnection.dropConnection();
+         } catch (SQLException ex) {
+             Logger.getLogger(ItemDao.class.getName()).log(Level.SEVERE, null, ex);
+             return false;
+         }
         return true;
     }
     
@@ -106,6 +119,7 @@ public class ItemDao {
                 Item i = new Item(upc, name, units, uprice, man, cat);
                 itemAList.add(i);
             }
+            DConnection.dropConnection();
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -135,4 +149,7 @@ public class ItemDao {
     private static final String STR_GET_ITEM
             = "SELECT UPC, NAME, UNITS, UNIT_PRICE, MANUFACTURER, CATEGORY " 
             + "FROM APP.INVENTORY";
+    private static final String STR_DEL_ITEM =
+            "DELETE FROM APP.INVENTORY " +
+            "WHERE ID = ?";
 }
