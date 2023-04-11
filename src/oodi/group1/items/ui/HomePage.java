@@ -4,6 +4,10 @@
  */
 package oodi.group1.items.ui;
 
+import java.util.ArrayList;
+import oodi.group1.items.Item;
+import oodi.group1.items.db.ItemDao;
+
 /**
  *
  * @author chris
@@ -25,11 +29,13 @@ public class HomePage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         inventoryjTable = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 768));
@@ -40,7 +46,7 @@ public class HomePage extends javax.swing.JFrame {
 
         inventoryjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "UPC", "Name", "Units", "Unit Price", "Manufacturer", "Category"
@@ -65,8 +71,61 @@ public class HomePage extends javax.swing.JFrame {
         inventoryjTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(inventoryjTable);
         inventoryjTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (inventoryjTable.getColumnModel().getColumnCount() > 0) {
+            inventoryjTable.getColumnModel().getColumn(0).setHeaderValue("UPC");
+            inventoryjTable.getColumnModel().getColumn(1).setHeaderValue("Name");
+            inventoryjTable.getColumnModel().getColumn(2).setHeaderValue("Units");
+            inventoryjTable.getColumnModel().getColumn(3).setHeaderValue("Unit Price");
+            inventoryjTable.getColumnModel().getColumn(4).setHeaderValue("Manufacturer");
+            inventoryjTable.getColumnModel().getColumn(5).setHeaderValue("Category");
+        }
+        String col[] = {"UPC", "Name", "Units", "Unit Price", "Manufacturer", "Category"};
 
-        jPanel2.add(jScrollPane1, new java.awt.GridBagConstraints());
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(col, 0);
+        inventoryjTable.setModel(model);
+
+        /**
+        * TO DO: Code to populate the table
+        */
+        ArrayList<Item> al = new ArrayList<Item>(ItemDao.fetchItems());
+
+        for (int i = 0; i < al.size(); i++) {
+            String upc = al.get(i).getUPC();
+            String name = al.get(i).getName();
+            int units = al.get(i).getUnits();
+            double uprice = al.get(i).getunitPrice();
+            String man = al.get(i).getManufacturer();
+            String cat = al.get(i).getCategory();
+
+            Object[] data = {upc, name, units, uprice, man, cat};
+            model.addRow(data);
+        }
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 624;
+        gridBagConstraints.ipady = 340;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel2.add(jScrollPane1, gridBagConstraints);
+
+        jButton2.setText("new item");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 0);
+        jPanel2.add(jButton2, gridBagConstraints);
 
         jTabbedPane1.addTab("INVENTORY", jPanel2);
 
@@ -74,17 +133,22 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("INVENTORY");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        NewItem.start();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +187,7 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable inventoryjTable;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;

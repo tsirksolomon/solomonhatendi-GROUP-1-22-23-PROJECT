@@ -79,7 +79,15 @@ public class ItemDao {
         return true;
     }
     
-    public ArrayList<Item> getTableItems() {
+    public static boolean deleteItem(Item item) {
+        return true;
+    }
+    
+    /**
+     * 
+     * @return  Item ArrayList of all entries in the inventory table in the database.
+     */
+    public static ArrayList<Item> fetchItems() {
         ArrayList<Item> itemAList = new ArrayList<Item>();
         Statement s = null;
         ResultSet rs = null;
