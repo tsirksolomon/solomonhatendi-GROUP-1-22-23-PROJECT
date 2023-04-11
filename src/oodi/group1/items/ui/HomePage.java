@@ -35,9 +35,13 @@ public class HomePage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         inventoryjTable = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        jPanelButtons = new javax.swing.JPanel();
+        jButtonNewItem = new javax.swing.JButton();
+        jButtonEditItem = new javax.swing.JButton();
+        jButtonDeleteItem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(1280, 768));
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
@@ -67,18 +71,10 @@ public class HomePage extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        inventoryjTable.setColumnSelectionAllowed(true);
+        inventoryjTable.setShowGrid(true);
         inventoryjTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(inventoryjTable);
         inventoryjTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (inventoryjTable.getColumnModel().getColumnCount() > 0) {
-            inventoryjTable.getColumnModel().getColumn(0).setHeaderValue("UPC");
-            inventoryjTable.getColumnModel().getColumn(1).setHeaderValue("Name");
-            inventoryjTable.getColumnModel().getColumn(2).setHeaderValue("Units");
-            inventoryjTable.getColumnModel().getColumn(3).setHeaderValue("Unit Price");
-            inventoryjTable.getColumnModel().getColumn(4).setHeaderValue("Manufacturer");
-            inventoryjTable.getColumnModel().getColumn(5).setHeaderValue("Category");
-        }
         String col[] = {"UPC", "Name", "Units", "Unit Price", "Manufacturer", "Category"};
 
         javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(col, 0);
@@ -104,7 +100,6 @@ public class HomePage extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 624;
@@ -113,19 +108,29 @@ public class HomePage extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
-        jButton2.setText("new item");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNewItem.setText("new item");
+        jButtonNewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonNewItemActionPerformed(evt);
             }
         });
+        jPanelButtons.add(jButtonNewItem);
+
+        jButtonEditItem.setText("edit item");
+        jPanelButtons.add(jButtonEditItem);
+
+        jButtonDeleteItem.setText("delete item");
+        jButtonDeleteItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteItemActionPerformed(evt);
+            }
+        });
+        jPanelButtons.add(jButtonDeleteItem);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 0);
-        jPanel2.add(jButton2, gridBagConstraints);
+        jPanel2.add(jPanelButtons, gridBagConstraints);
 
         jTabbedPane1.addTab("INVENTORY", jPanel2);
 
@@ -145,10 +150,14 @@ public class HomePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewItemActionPerformed
         // TODO add your handling code here:
         NewItem.start();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonNewItemActionPerformed
+
+    private void jButtonDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,8 +196,11 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable inventoryjTable;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonDeleteItem;
+    private javax.swing.JButton jButtonEditItem;
+    private javax.swing.JButton jButtonNewItem;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelButtons;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
