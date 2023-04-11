@@ -5,6 +5,9 @@
 package oodi.group1.items.ui;
 
 import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import oodi.group1.items.Item;
 import oodi.group1.items.db.ItemDao;
 
@@ -73,6 +76,11 @@ public class HomePage extends javax.swing.JFrame {
         });
         inventoryjTable.setShowGrid(true);
         inventoryjTable.getTableHeader().setReorderingAllowed(false);
+        inventoryjTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventoryjTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(inventoryjTable);
         inventoryjTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         String col[] = {"UPC", "Name", "Units", "Unit Price", "Manufacturer", "Category"};
@@ -96,6 +104,8 @@ public class HomePage extends javax.swing.JFrame {
             Object[] data = {upc, name, units, uprice, man, cat};
             model.addRow(data);
         }
+
+        inventoryjTable.getSelectionModel().addListSelectionListener(new SharedListSelectionHandler());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -157,8 +167,28 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButtonDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteItemActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonDeleteItemActionPerformed
 
+    private void inventoryjTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryjTableMouseClicked
+        // TODO add your handling code here:
+        javax.swing.JTable source = (javax.swing.JTable)evt.getSource();
+        int row = source.rowAtPoint(evt.getPoint());
+        String s = source.getModel().getValueAt(row,0)+"";
+        ItemDao.deleteItem(s);
+    }//GEN-LAST:event_inventoryjTableMouseClicked
+
+    class SharedListSelectionHandler implements ListSelectionListener {
+            public void valueChanged(ListSelectionEvent e) { 
+            ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+ 
+            int firstIndex = e.getFirstIndex();
+            int lastIndex = e.getLastIndex();
+            boolean isAdjusting = e.getValueIsAdjusting();
+            
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

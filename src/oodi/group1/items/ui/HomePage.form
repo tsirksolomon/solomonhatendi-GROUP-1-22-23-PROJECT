@@ -82,7 +82,7 @@
                         <Column editable="false" title="Category" type="java.lang.String"/>
                       </Table>
                     </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="String col[] = {&quot;UPC&quot;, &quot;Name&quot;, &quot;Units&quot;, &quot;Unit Price&quot;, &quot;Manufacturer&quot;, &quot;Category&quot;};&#xa;&#xa;javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(col, 0);&#xa;inventoryjTable.setModel(model);&#xa;&#xa;/**&#xa;* TO DO: Code to populate the table&#xa;*/&#xa;ArrayList&lt;Item&gt; al = new ArrayList&lt;Item&gt;(ItemDao.fetchItems());&#xa;&#xa;for (int i = 0; i &lt; al.size(); i++) {&#xa;    String upc = al.get(i).getUPC();&#xa;    String name = al.get(i).getName();&#xa;    int units = al.get(i).getUnits();&#xa;    double uprice = al.get(i).getunitPrice();&#xa;    String man = al.get(i).getManufacturer();&#xa;    String cat = al.get(i).getCategory();&#xa;&#xa;    Object[] data = {upc, name, units, uprice, man, cat};&#xa;    model.addRow(data);&#xa;}">
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="String col[] = {&quot;UPC&quot;, &quot;Name&quot;, &quot;Units&quot;, &quot;Unit Price&quot;, &quot;Manufacturer&quot;, &quot;Category&quot;};&#xa;&#xa;javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(col, 0);&#xa;inventoryjTable.setModel(model);&#xa;&#xa;/**&#xa;* TO DO: Code to populate the table&#xa;*/&#xa;ArrayList&lt;Item&gt; al = new ArrayList&lt;Item&gt;(ItemDao.fetchItems());&#xa;&#xa;for (int i = 0; i &lt; al.size(); i++) {&#xa;    String upc = al.get(i).getUPC();&#xa;    String name = al.get(i).getName();&#xa;    int units = al.get(i).getUnits();&#xa;    double uprice = al.get(i).getunitPrice();&#xa;    String man = al.get(i).getManufacturer();&#xa;    String cat = al.get(i).getCategory();&#xa;&#xa;    Object[] data = {upc, name, units, uprice, man, cat};&#xa;    model.addRow(data);&#xa;}&#xa;&#xa;inventoryjTable.getSelectionModel().addListSelectionListener(new SharedListSelectionHandler());">
                       <TableColumnModel selectionModel="1">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
@@ -121,6 +121,9 @@
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inventoryjTableMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
